@@ -1,9 +1,13 @@
 <p>products works!</p>
 
-<div>
-  <ul>
-    <li *ngFor="let product of products$ | async" >
-      name: {{product.name}}
-    </li>
-  </ul>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav mode='side' opened>
+    <mat-nav-list dense>
+      <a routerLink='list' mat-list-item>List</a>
+      <a routerLink='create' mat-list-item>Create</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

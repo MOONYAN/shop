@@ -1,3 +1,13 @@
 <h1>{{title}}</h1>
 
+<nav mat-tab-nav-bar>
+  <a matTabLink
+    routerLink='/products'
+    routerLinkActive #rla='routerLinkActive'
+    [active]='rla.isActive'>
+    Products
+  </a>
+</nav>
+
+<hr>
 <router-outlet></router-outlet>
