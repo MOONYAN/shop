@@ -1,6 +1,6 @@
-<p>create-product works!</p>
+<h2 mat-dialog-title>New Product</h2>
 
-<form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)" >
+<!-- <form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)" >
   <mat-form-field>
     <mat-label>Product Name</mat-label>
     <input matInput placeholder="enter string ..." formControlName="name">
@@ -12,4 +12,21 @@
   </mat-form-field>
 
   <button mat-button type="submit">Create</button>
+</form> -->
+
+<form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)">
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName='name' required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-icon matPrefix>attach_money</mat-icon>
+      <input matInput type="number" placeholder="Price" formControlName='price' required>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button type="submit">Create</button>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
 </form>

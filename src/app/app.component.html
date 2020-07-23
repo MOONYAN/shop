@@ -1,13 +1,33 @@
-<h1>{{title}}</h1>
+<mat-toolbar color='primary'>
 
-<nav mat-tab-nav-bar>
-  <a matTabLink
-    routerLink='/products'
-    routerLinkActive #rla='routerLinkActive'
-    [active]='rla.isActive'>
-    Products
-  </a>
-</nav>
+  <button mat-icon-button (click)='sideNav.toggle()'>
+    <mat-icon>{{sideNav.opened?'close':'menu'}}</mat-icon>
+  </button>
 
-<hr>
-<router-outlet></router-outlet>
+  <span>{{title}}</span>
+
+  <span class="toolbar-seprator"></span>
+
+  <button mat-icon-button>
+    <mat-icon>message</mat-icon>
+  </button>
+
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav position='start' mode='push' #sideNav>
+    <mat-nav-list>
+      <h3 mat-subheader>Product</h3>
+      <a routerLink='/products' mat-list-item>Products</a>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Cart</h3>
+      <a routerLink='/carts' mat-list-item>Carts</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

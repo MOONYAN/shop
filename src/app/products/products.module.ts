@@ -9,7 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [ProductsComponent, ProductListComponent, CreateProductComponent],
@@ -21,6 +24,9 @@ import { CreateProductComponent } from './create-product/create-product.componen
     MatInputModule,
     MatSidenavModule,
     MatListModule,
-  ]
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule
+  ], entryComponents: [CreateProductComponent]
 })
 export class ProductsModule { }

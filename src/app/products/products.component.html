@@ -1,13 +1,6 @@
 <p>products works!</p>
 
-<mat-sidenav-container>
-  <mat-sidenav mode='side' opened>
-    <mat-nav-list dense>
-      <a routerLink='list' mat-list-item>List</a>
-      <a routerLink='create' mat-list-item>Create</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<button mat-raised-button color='primary' (click)='openDialog()'>
+  <mat-icon>create</mat-icon> Create
+</button>
+<app-product-list></app-product-list>

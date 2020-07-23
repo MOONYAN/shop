@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
-import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-product',
@@ -16,7 +16,7 @@ export class CreateProductComponent implements OnInit {
   constructor(
     private builder: FormBuilder,
     private service: ProductService,
-    private router: Router) { }
+    private dialogRef: MatDialogRef<CreateProductComponent>) { }
 
   ngOnInit(): void {
     this.createForm = this.builder.group({
@@ -26,14 +26,10 @@ export class CreateProductComponent implements OnInit {
   }
 
   onSubmit(productData) {
-    this.createForm.reset();
-    this.service.createProduct(productData as Product).subscribe(
-      _ => this.redirect()
-    );
+    if (this.createForm.valid) {
+      this.service.createProduct(productData as Product).subscribe(
+        product => this.dialogRef.close(product)
+      );
+    }
   }
-
-  private redirect(){
-    this.router.navigateByUrl('/products');
-  }
-
 }
