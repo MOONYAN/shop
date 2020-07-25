@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateProductComponent } from './create-product/create-product.component';
+import { ProductService } from '../services/product.service';
+import { Observable } from 'rxjs';
+import { Product } from '../models/product.model';
+import { DialogNewProductComponent } from './dialog-new-product/dialog-new-product.component';
+
 
 @Component({
   selector: 'app-products',
@@ -9,13 +13,17 @@ import { CreateProductComponent } from './create-product/create-product.componen
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  products$: Observable<Product[]>;
+
+  constructor(
+    private productService: ProductService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.productService.init();
   }
 
   openDialog() {
-    const ref = this.dialog.open(CreateProductComponent);
+    this.dialog.open(DialogNewProductComponent);
   }
-
 }

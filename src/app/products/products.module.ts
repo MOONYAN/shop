@@ -10,12 +10,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateProductComponent } from './create-product/create-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { DialogNewProductComponent } from './dialog-new-product/dialog-new-product.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductListComponent, CreateProductComponent],
+  declarations: [ProductsComponent, ProductListComponent, DialogNewProductComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
@@ -27,6 +27,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDialogModule,
     MatIconModule
-  ], entryComponents: [CreateProductComponent]
+  ], entryComponents: [DialogNewProductComponent]
 })
 export class ProductsModule { }

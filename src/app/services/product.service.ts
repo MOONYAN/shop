@@ -1,22 +1,46 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from '../models/product.model';
+import { ApiProductService } from './api-product.service';
+import { DtoForCreateProduct } from '../interfaces/dto-for-create-product.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:3000/product';
+  private subject = new BehaviorSubject<Product[]>([])
 
-  constructor(private http: HttpClient) { }
+  constructor(private api: ApiProductService) { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl);
+  get products$(): Observable<Product[]> {
+    return this.subject.asObservable();
   }
 
-  createProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product);
+  init(): void {
+    this.api.getProducts().pipe(
+      map(dtos => dtos.map(dto => new Product(dto)))
+    ).subscribe(
+      products => this.subject.next(products)
+    );
+  }
+
+  createProduct(dto: DtoForCreateProduct): void {
+    this.api.createProduct(dto as DtoForCreateProduct).pipe(
+      map(productDto => new Product(productDto))
+    ).subscribe(
+      product => {
+        const products = [...this.subject.getValue(), product];
+        this.subject.next(products);
+      }
+    );
+  }
+
+  deleteProduct(productId: number): void {
+    const products = this.subject.getValue()
+      .filter(product => product.id !== productId);
+    this.subject.next(products);
+    this.api.deleteProduct(productId).subscribe();
   }
 }

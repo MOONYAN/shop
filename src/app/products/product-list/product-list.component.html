@@ -3,9 +3,10 @@
   <mat-list-item *ngFor="let product of products$ | async">
     <img matListAvatar src="assets/avatar_universe.jpg">
     <p matLine>{{product.name}}</p>
+    <p matLine>ID:{{product.id}}</p>
     <p matline>{{product.price|currency}}</p>
-    <button mat-icon-button (click)='addToCart(product)'>
-      <mat-icon>add_shopping_cart</mat-icon>
+    <button mat-icon-button color='warn' (click)='onDelete(product.id)'>
+      <mat-icon>delete</mat-icon>
     </button>
   </mat-list-item>
 </mat-list>
