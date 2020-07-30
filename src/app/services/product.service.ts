@@ -10,7 +10,7 @@ import { DtoForCreateProduct } from '../interfaces/dto-for-create-product.interf
 })
 export class ProductService {
 
-  private subject = new BehaviorSubject<Product[]>([])
+  private subject = new BehaviorSubject<Product[]>([]);
 
   constructor(private api: ApiProductService) { }
 

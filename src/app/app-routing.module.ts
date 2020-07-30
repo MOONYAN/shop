@@ -4,7 +4,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
-  { path: 'carts', loadChildren: () => import('./carts/carts.module').then(m => m.CartsModule) }
+  { path: 'mart', loadChildren: () => import('./mart/mart.module').then(m => m.MartModule) }
 ];
 
 @NgModule({
