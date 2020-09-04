@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>New Product</h2>
+
+<form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)">
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName='name' required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-icon matPrefix>attach_money</mat-icon>
+      <input matInput type="number" placeholder="Price" formControlName='price' required>
+    </mat-form-field>
+  </mat-dialog-content>
+    <mat-dialog-actions align='end'>
+    <button mat-raised-button type="submit">Create</button>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>
