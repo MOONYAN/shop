@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map, switchMap, switchMapTo, take } from 'rxjs/operators';
 import { AutoService } from './auto.service';
 import { Auto } from './model/auto.vm';
 import { Observable } from 'rxjs';
@@ -17,8 +17,16 @@ export class ManageComponent implements OnInit {
 
   ngOnInit(): void {
     this.autos$ = this.autoService.getMany().pipe(
-      map(resAutoDtos => resAutoDtos.map<Auto>(auto => new Auto(auto)))
+      map(resAutoDtos => resAutoDtos.map<Auto>(auto => new Auto(auto))),
+      take(1)
     );
   }
 
+  deleteAuto(autoId: number) {
+    this.autos$ = this.autoService.deleteOne(autoId).pipe(
+      switchMapTo(this.autoService.getMany()),
+      map(resAutoDtos => resAutoDtos.map<Auto>(auto => new Auto(auto))),
+      take(1)
+    );
+  }
 }
