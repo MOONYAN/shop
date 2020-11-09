@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class AutoService {
 
-  readonly API_BASE_URL = 'http://localhost:3000/auto';
+  private readonly API_BASE_URL = 'http://localhost:3000/auto';
 
   constructor(private http: HttpClient) { }
 

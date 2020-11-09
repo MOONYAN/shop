@@ -1,3 +1,7 @@
+import { map } from 'rxjs/operators';
+import { AutoService } from './auto.service';
+import { Auto } from './model/auto.vm';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageComponent implements OnInit {
 
-  constructor() { }
+  autos$: Observable<Auto[]>;
+
+  constructor(private autoService: AutoService) { }
 
   ngOnInit(): void {
+    this.autos$ = this.autoService.getMany().pipe(
+      map(resAutoDtos => resAutoDtos.map<Auto>(auto => new Auto(auto)))
+    );
   }
 
 }
