@@ -1,0 +1,5 @@
+<p>manage works!</p>
+
+<app-auto-form ($newedAuto)="createAuto($event)"></app-auto-form>
+
+<app-auto-list [autos]="autos$|async" ($autoId)="deleteAuto($event)"></app-auto-list>

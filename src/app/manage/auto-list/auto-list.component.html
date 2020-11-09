@@ -1,0 +1,22 @@
+<p>auto-list works!</p>
+
+<mat-grid-list [cols]="2" [gutterSize]="20" rowHeight="3:2">
+  <mat-grid-tile [colspan]="1" *ngFor="let auto of autos">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{auto.name}}</mat-card-title>
+        <mat-card-subtitle>id: {{auto.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="auto.photo">
+      <mat-card-content>
+        <p>ACC: {{auto.acc |uppercase}}</p>
+        <p>ABS: {{auto.abs}}</p>
+      </mat-card-content>
+      <mat-card-actions align='end'>
+        <button mat-icon-button color='warn' (click)="onDelete(auto.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

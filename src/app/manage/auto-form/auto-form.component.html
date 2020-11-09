@@ -1,0 +1,30 @@
+<p>auto-form works!</p>
+
+<form [formGroup]="autoForm" (ngSubmit)="onSubmit(autoForm.value)">
+  <mat-form-field>
+    <input matInput type="text" formControlName="name" placeholder="Name" required>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="photo" placeholder="Photo URL" required>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+
+  <mat-radio-group formControlName="acc">
+    <mat-radio-button *ngFor='let accOpt of accOptions' [value]="accOpt">
+      {{accOpt|uppercase}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-divider></mat-divider>
+
+  <mat-radio-group formControlName="abs">
+    <mat-radio-button *ngFor='let absOpt of absOptions' [value]="absOpt">
+      {{absOpt}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-divider></mat-divider>
+
+  <button type="submit" mat-raised-button color="primary">Submit</button>
+  <button type="reset" mat-raised-button>Reset</button>
+</form>
