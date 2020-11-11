@@ -1,4 +1,4 @@
-import { SignupMOdel } from './model/signup-model.vm';
+import { SignupModel } from './model/signup-model.vm';
 import { AccountService } from './account.service';
 import { LoginModel } from './model/login-model.vm';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -22,6 +22,7 @@ export class AccountComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.accountSub = this.accountService.getAccount().subscribe(account => {
       if (account.isLogin) {
+        console.log(account);
         this.onLogined();
       }
     });
@@ -36,7 +37,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     this.accountService.login(dto);
   }
 
-  signup(signupModel: SignupMOdel) {
+  signup(signupModel: SignupModel) {
     const dto = signupModel.toReqDto();
     this.accountService.signup(dto);
   }

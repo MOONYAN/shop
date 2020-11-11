@@ -1,0 +1,17 @@
+<p>signup-form works!</p>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+  <mat-form-field>
+    <mat-icon matPrefix>email</mat-icon>
+    <input matInput type="email" placeholder="Email" formControlName="email" required>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+
+  <mat-form-field>
+    <mat-icon matPrefix>lock</mat-icon>
+    <input matInput type="password" placeholder="Password" formControlName="password" required>
+  </mat-form-field>
+
+  <mat-divider></mat-divider>
+  <button type="submit" mat-raised-button color='primary'>Sign Up</button>
+</form>

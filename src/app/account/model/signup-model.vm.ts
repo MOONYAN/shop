@@ -1,5 +1,5 @@
 import { ReqSignupDto } from './../dto/req-signup-dto';
-export class SignupMOdel {
+export class SignupModel {
 
   email: string;
 

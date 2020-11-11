@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { AccountRoutingModule } from './account-routing.module';
 import { AccountComponent } from './account.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 @NgModule({
-  declarations: [AccountComponent, LoginFormComponent],
+  declarations: [AccountComponent, LoginFormComponent, SignupFormComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
