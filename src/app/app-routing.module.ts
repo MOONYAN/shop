@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
   { path: 'mart', loadChildren: () => import('./mart/mart.module').then(m => m.MartModule) },
-  { path: 'manage', loadChildren: () => import('./manage/manage.module').then(m => m.ManageModule) }
+  { path: 'manage', loadChildren: () => import('./manage/manage.module').then(m => m.ManageModule) },
+  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) }
 ];
 
 @NgModule({
