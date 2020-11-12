@@ -8,11 +8,13 @@
 
   <span class="toolbar-seprator"></span>
 
-  <button mat-icon-button>
-    <mat-icon>message</mat-icon>
-  </button>
+  <mat-chip-list>
+    <mat-chip>
+      {{(account$|async).email}}
+    </mat-chip>
+  </mat-chip-list>
 
-  <button mat-icon-button>
+  <button mat-icon-button matTooltip="Log Out" (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
@@ -25,6 +27,10 @@
       <mat-divider></mat-divider>
       <h3 mat-subheader>Cart</h3>
       <a routerLink='/mart' mat-list-item>Mart</a>
+      <h3 mat-subheader>Manage</h3>
+      <a routerLink='/manage' mat-list-item>Manage</a>
+      <h3 mat-subheader>Account</h3>
+      <a routerLink='/account' mat-list-item>Account</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
