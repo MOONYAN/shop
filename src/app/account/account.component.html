@@ -1,5 +1,13 @@
 <p>account works!</p>
 
-<app-login-form ($loginModel)="login($event)"></app-login-form>
+<mat-tab-group>
 
-<app-signup-form ($signupModel)="signup($event)"></app-signup-form>
+  <mat-tab label="Login">
+    <app-login-form ($loginModel)="login($event)"></app-login-form>
+  </mat-tab>
+
+  <mat-tab label="Sign Up">
+    <app-signup-form ($signupModel)="signup($event)"></app-signup-form>
+  </mat-tab>
+
+</mat-tab-group>

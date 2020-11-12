@@ -1,17 +1,25 @@
-<p>login-form works!</p>
+<mat-card>
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-  <mat-form-field>
-    <mat-icon matPrefix>email</mat-icon>
-    <input matInput type="email" placeholder="Email" formControlName="email" required>
-  </mat-form-field>
-  <mat-divider></mat-divider>
+  <mat-card-title>
+    Login Form
+  </mat-card-title>
 
-  <mat-form-field>
-    <mat-icon matPrefix>lock</mat-icon>
-    <input matInput type="password" placeholder="Password" formControlName="password" required>
-  </mat-form-field>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <mat-card-content>
+      <mat-form-field>
+        <mat-icon matPrefix>email</mat-icon>
+        <input matInput type="email" placeholder="Email" formControlName="email" required>
+      </mat-form-field>
 
-  <mat-divider></mat-divider>
-  <button type="submit" mat-raised-button color='primary'>Login</button>
-</form>
+      <mat-form-field>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions align='start'>
+      <button type="submit" mat-raised-button color='primary'>Login</button>
+    </mat-card-actions>
+  </form>
+
+</mat-card>
