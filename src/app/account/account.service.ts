@@ -11,7 +11,7 @@ import { ReqLoginDto } from './dto/req-login-dto';
 })
 export class AccountService {
 
-  private subject = new BehaviorSubject<Account>(new Account(false, '', ''));
+  private subject = new BehaviorSubject<Account>(new Account(false, 'Anonymous', ''));
 
   constructor(private authService: AuthService) { }
 
@@ -27,6 +27,10 @@ export class AccountService {
       const account = new Account(true, resDto.email, resDto.access_token);
       this.subject.next(account);
     });
+  }
+
+  logout() {
+    this.subject.next(new Account(false, 'Anonymous', ''));
   }
 
   getAccount(): Observable<Account> {

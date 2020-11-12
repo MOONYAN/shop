@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs';
+import { AccountService } from './account/account.service';
+import { Account } from './account/model/account.vm';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +10,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shop';
+
+  account$: Observable<Account>;
+
+  constructor(private accountService: AccountService) {
+    this.account$ = this.accountService.getAccount();
+  }
+
+  logout() {
+    this.accountService.logout();
+  }
 }
