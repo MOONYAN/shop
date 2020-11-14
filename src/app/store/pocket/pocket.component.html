@@ -1,0 +1,8 @@
+<p>pocket works!</p>
+
+<mat-chip-list>
+  <mat-chip *ngFor="let auto of pocketAutos" (removed)="onRemove(auto.autoId)">
+    {{auto.name}}
+    <mat-icon matChipRemove>cancel</mat-icon>
+  </mat-chip>
+</mat-chip-list>

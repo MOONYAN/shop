@@ -1,6 +1,6 @@
 <p>auto-form works!</p>
 
-<form [formGroup]="autoForm" (ngSubmit)="onSubmit(autoForm.value)">
+<form [formGroup]="autoForm" (ngSubmit)="onSubmit(autoForm.value)" (reset)="onReset()">
   <mat-form-field>
     <input matInput type="text" formControlName="name" placeholder="Name" required>
   </mat-form-field>
@@ -11,14 +11,14 @@
   </mat-form-field>
   <mat-divider></mat-divider>
 
-  <mat-radio-group formControlName="acc">
+  <mat-radio-group formControlName="acc" required>
     <mat-radio-button *ngFor='let accOpt of accOptions' [value]="accOpt">
       {{accOpt|uppercase}}
     </mat-radio-button>
   </mat-radio-group>
   <mat-divider></mat-divider>
 
-  <mat-radio-group formControlName="abs">
+  <mat-radio-group formControlName="abs" required>
     <mat-radio-button *ngFor='let absOpt of absOptions' [value]="absOpt">
       {{absOpt}}
     </mat-radio-button>
