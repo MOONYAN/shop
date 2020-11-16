@@ -43,6 +43,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   onLogined() {
-    this.router.navigate(['/manage']);
+    this.router.navigate(['/store']);
   }
 }
