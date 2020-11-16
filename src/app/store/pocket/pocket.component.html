@@ -1,8 +1,16 @@
-<p>pocket works!</p>
+<mat-card>
+  <mat-card-title>
+    My Pocket
+  </mat-card-title>
 
-<mat-chip-list>
-  <mat-chip *ngFor="let auto of pocketAutos" (removed)="onRemove(auto.autoId)">
-    {{auto.name}}
-    <mat-icon matChipRemove>cancel</mat-icon>
-  </mat-chip>
-</mat-chip-list>
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip *ngFor="let auto of pocketAutos" (removed)="onRemove(auto.autoId)">
+        {{auto.name}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+
+</mat-card>
+
