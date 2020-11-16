@@ -14,8 +14,11 @@
     </mat-chip>
   </mat-chip-list>
 
-  <button mat-icon-button matTooltip="Log Out" (click)="logout()">
+  <button mat-icon-button matTooltip="Log Out" (click)="logout()" *ngIf="(account$|async).isLogin">
     <mat-icon>exit_to_app</mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Sign In" (click)="signin()" *ngIf="!(account$|async).isLogin">
+    <mat-icon>person_pin</mat-icon>
   </button>
 </mat-toolbar>
 
