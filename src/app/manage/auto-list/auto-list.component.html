@@ -1,7 +1,5 @@
-<p>auto-list works!</p>
-
-<mat-grid-list [cols]="2" [gutterSize]="20" rowHeight="3:2">
-  <mat-grid-tile [colspan]="1" *ngFor="let auto of autos">
+<mat-grid-list [cols]="12" [gutterSize]="10" rowHeight="16:9">
+  <mat-grid-tile colspan="6" [rowspan]="8" *ngFor="let auto of autos">
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{auto.name}}</mat-card-title>
