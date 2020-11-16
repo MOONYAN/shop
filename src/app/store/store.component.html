@@ -1,0 +1,5 @@
+<app-pocket [pocketAutos]="$pocketAutos|async" ($autoId)="detachAuto($event)"></app-pocket>
+
+<mat-divider></mat-divider>
+
+<app-product-list [products]="$products|async" ($autoId)="attachAuto($event)"></app-product-list>

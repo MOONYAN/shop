@@ -1,0 +1,18 @@
+<mat-grid-list gutterSize="10px" cols="12" rowHeight="16:9">
+
+  <mat-grid-tile *ngFor="let product of products" colspan="12" rowspan='8' >
+    <mat-card>
+      <mat-card-title>
+        {{product.name}}
+      </mat-card-title>
+
+      <img matCardImage [src]="product.photo">
+
+      <mat-card-actions align='end'>
+        <button mat-icon-button color='primary' (click)="onPin(product.autoId)" matTooltip="Pin To Pocket">
+          <mat-icon>push_pin</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

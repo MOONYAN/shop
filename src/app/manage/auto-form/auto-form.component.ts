@@ -18,15 +18,17 @@ export class AutoFormComponent implements OnInit {
 
   readonly absOptions = [true, false];
 
+  private readonly initFormValue = {
+    name: '',
+    photo: '',
+    acc: 'full',
+    abs: true
+  };
+
   constructor(private builder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.autoForm = this.builder.group({
-      name: '',
-      photo: '',
-      acc: 'full',
-      abs: true
-    });
+    this.autoForm = this.builder.group(this.initFormValue);
   }
 
   onSubmit(value) {
@@ -40,7 +42,11 @@ export class AutoFormComponent implements OnInit {
       newedAuto.abs = value.abs;
 
       this.$newedAuto.emit(newedAuto);
-      this.autoForm.reset();
+      this.autoForm.reset(this.initFormValue);
     }
+  }
+
+  onReset() {
+    this.autoForm.reset(this.initFormValue);
   }
 }
