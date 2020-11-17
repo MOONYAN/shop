@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
 
   account$: Observable<Account>;
 
+  isBurgerOpened: boolean;
+
   constructor(
     private accountService: AccountService,
     private router: Router) {
@@ -31,5 +33,13 @@ export class AppComponent implements OnInit {
 
   signin() {
     this.router.navigate(['/account']);
+  }
+
+  burgerToggle() {
+    this.isBurgerOpened = !this.isBurgerOpened;
+  }
+
+  closeNav() {
+    this.isBurgerOpened = false;
   }
 }
