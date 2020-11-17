@@ -1,0 +1,23 @@
+<mat-toolbar color='primary'>
+
+  <button mat-icon-button (click)='toggle()'>
+    <mat-icon>{{isBurgerOpened?'close':'menu'}}</mat-icon>
+  </button>
+
+  <span>{{title}}</span>
+
+  <span class="toolbar-seprator"></span>
+
+  <mat-chip-list>
+    <mat-chip>
+      {{account.email}}
+    </mat-chip>
+  </mat-chip-list>
+
+  <button mat-icon-button matTooltip="Log Out" (click)="logout()" *ngIf="account.isLogin">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Sign In" (click)="signin()" *ngIf="!account.isLogin">
+    <mat-icon>person_pin</mat-icon>
+  </button>
+</mat-toolbar>

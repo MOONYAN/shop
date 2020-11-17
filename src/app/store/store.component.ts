@@ -40,7 +40,7 @@ export class StoreComponent implements OnInit {
     } as ReqAttachAutoDto;
 
     this.$pocketAutos = this.pocketService.attatchAuto(dto).pipe(
-      map(resPocketDto => resPocketDto.autos.map(dto => new PocketAuto(dto))),
+      map(resPocketDto => resPocketDto.autos.map(resAutoDto => new PocketAuto(resAutoDto))),
       take(1)
     );
   }
@@ -51,5 +51,4 @@ export class StoreComponent implements OnInit {
       take(1)
     );
   }
-
 }

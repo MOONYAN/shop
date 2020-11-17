@@ -1,36 +1,7 @@
-<mat-toolbar color='primary'>
+<app-top-bar [title]="title" [account]="account$|async" [isBurgerOpened]="isBurgerOpened" ($logout)="logout()"
+  ($signin)="signin()" ($burgerToggle)="burgerToggle()">
+</app-top-bar>
 
-  <button mat-icon-button (click)='sideNav.toggle()'>
-    <mat-icon>{{sideNav.opened?'close':'menu'}}</mat-icon>
-  </button>
+<app-side-nav [isOpened]="isBurgerOpened" ($navClicked)="closeNav()">
 
-  <span>{{title}}</span>
-
-  <span class="toolbar-seprator"></span>
-
-  <mat-chip-list>
-    <mat-chip>
-      {{(account$|async).email}}
-    </mat-chip>
-  </mat-chip-list>
-
-  <button mat-icon-button matTooltip="Log Out" (click)="logout()">
-    <mat-icon>exit_to_app</mat-icon>
-  </button>
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <mat-sidenav position='start' mode='push' #sideNav>
-    <mat-nav-list>
-      <h3 mat-subheader>Repo</h3>
-      <a routerLink='/manage' mat-list-item>Manage</a>
-      <mat-divider></mat-divider>
-      <h3 mat-subheader>Customer</h3>
-      <a routerLink='/account' mat-list-item>Account</a>
-      <a routerLink='/store' mat-list-item>Store</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+</app-side-nav>
