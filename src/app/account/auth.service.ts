@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 import { ReqSignupDto } from './dto/req-signup-dto';
 import { ReqLoginDto } from './dto/req-login-dto';
@@ -10,9 +11,9 @@ import { ResCredencialDto } from './dto/res-credencial-dto';
 })
 export class AuthService {
 
-  private API_SIGNUP_URL = 'http://localhost:3000/auth/signup';
+  private API_SIGNUP_URL = `${environment.api_domain}/auth/signup`;
 
-  private API_LOGIN_URL = 'http://localhost:3000/auth/login';
+  private API_LOGIN_URL = `${environment.api_domain}/auth/login`;
 
   constructor(private http: HttpClient) { }
 

@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 import { ResAutoDto } from './dto/res-auto-dto';
 import { ReqCreateAutoDto } from './dto/req-create-auto-dto';
@@ -9,7 +10,7 @@ import { Injectable } from '@angular/core';
 })
 export class AutoService {
 
-  private readonly API_BASE_URL = 'http://localhost:3000/auto';
+  private readonly API_BASE_URL = `${environment.api_domain}/auto`;
 
   constructor(private http: HttpClient) { }
 
