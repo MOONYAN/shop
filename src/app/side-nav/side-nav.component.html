@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+  <mat-sidenav position='start' mode='push' [opened]="isOpened">
+    <mat-nav-list>
+      <h3 mat-subheader>Repo</h3>
+      <a routerLink='/manage' mat-list-item (click)="onNavClicked()">Manage</a>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Customer</h3>
+      <a routerLink='/account' mat-list-item (click)="onNavClicked()">Account</a>
+      <a routerLink='/store' mat-list-item (click)="onNavClicked()">Store</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
