@@ -1,0 +1,50 @@
+<mat-grid-list cols="12" rowHeight="16:9" gutterSize="10px">
+
+  <mat-grid-tile colspan="6" rowspan="3">
+    <mat-card>
+      <mat-card-title>
+        Up Load New Auto
+      </mat-card-title>
+      <img matCardImage src="assets/lanborghini.jpg">
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="6" rowspan="3">
+
+    <form [formGroup]="autoForm" (ngSubmit)="onSubmit(autoForm.value)" (reset)="onReset()">
+
+      <mat-form-field>
+        <mat-icon matPrefix>directions_car</mat-icon>
+        <input matInput type="text" formControlName="name" placeholder="Name" required>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+
+      <mat-form-field>
+        <mat-icon matPrefix>photo</mat-icon>
+        <input matInput type="text" formControlName="photo" placeholder="Photo URL" required>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+
+      <mat-radio-group formControlName="acc" required>
+        <mat-label>ACC: </mat-label>
+        <mat-radio-button *ngFor='let accOpt of accOptions' [value]="accOpt">
+          {{accOpt|uppercase}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-divider></mat-divider>
+
+      <mat-radio-group formControlName="abs" required>
+        <mat-label>ABS: </mat-label>
+        <mat-radio-button *ngFor='let absOpt of absOptions' [value]="absOpt">
+          {{absOpt}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-divider></mat-divider>
+
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+      <button type="reset" mat-raised-button>Reset</button>
+
+    </form>
+
+  </mat-grid-tile>
+</mat-grid-list>
